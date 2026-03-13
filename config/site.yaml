@@ -130,15 +130,15 @@ social:
   github:
     url: https://github.com/WangWindow # 替换为你的 GitHub 链接
     icon: ri:github-fill # Remix Icon 的 GitHub 图标
-    color: '#191717' # (可选) 图标颜色
+    color: "#191717" # (可选) 图标颜色
   email:
     url: mailto:wangwindow2004@gmail.com # 替换为你的邮箱，需加 mailto: 前缀
     icon: ri:mail-line
-    color: '#55acd5'
+    color: "#55acd5"
   rss:
     url: /rss.xml # 站内 RSS 订阅地址
     icon: ri:rss-line
-    color: '#ff6600'
+    color: "#ff6600"
   # -------------------------------------------------------------------------
   # 以下是更多可选的社交平台配置示例，取消注释并修改即可启用：
   # -------------------------------------------------------------------------
@@ -196,7 +196,7 @@ friends:
       owner: cos
       desc: FE / ACG / 手工 / 深色模式强迫症 / INFP / 兴趣广泛养两只猫的老宅女 / remote
       image: https://blog.cosine.ren/img/avatar.webp
-      color: '#ed788b'
+      color: "#ed788b"
 
 # =============================================================================
 # Announcements
@@ -325,7 +325,7 @@ navigation:
 # Comment System
 # =============================================================================
 comment:
-  provider: none  # 'giscus' | 'none'
+  provider: none # 'giscus' | 'none'
   # giscus:
   #   repo: username/repo              # GitHub 仓库名 (owner/repo 格式)
   #   repoId: R_kgDOxxxxxx             # 仓库 ID (从 giscus.app 获取)

@@ -226,7 +226,7 @@ export default function CodeBlockFullscreen() {
                   {/* Code Content */}
                   <div className="scroll-feather-mask flex-1 overflow-auto">
                     <pre className={cn(data.preClassName, "p-4")} style={preStyles}>
-                      {/* biome-ignore lint/security/noDangerouslySetInnerHtml: Safe - codeHTML comes from Shiki syntax highlighter output only */}
+                      {/* Safe: codeHTML comes from Shiki syntax highlighter output only */}
                       <code className={data.codeClassName} dangerouslySetInnerHTML={{ __html: data.codeHTML }} />
                     </pre>
                   </div>

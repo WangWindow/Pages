@@ -1,0 +1,13 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2025": true
+  },
+  "plugins": ["typescript", "react", "import", "unicorn"],
+  "ignorePatterns": ["dist/**", "node_modules/**", ".astro/**", "public/**", "**/*.astro", "src/env.d.ts"],
+  "rules": {
+    "no-debugger": "error"
+  }
+}

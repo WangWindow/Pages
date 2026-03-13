@@ -53,7 +53,7 @@ featuredSeries:
 
 | 工具   | 用途     | 链接       |
 | ------ | -------- | ---------- |
-| Biome  | 代码检查 | biome.dev  |
+| Oxc    | 代码检查 | oxc.rs     |
 | Motion | 动画库   | motion.dev |
 
 ### 本周学习

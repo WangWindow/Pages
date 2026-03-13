@@ -15,8 +15,9 @@ const generateTextSummary = (html?: string, length: number = 150): string => {
   const text = sanitizeHtml(html ?? "", {
     allowedTags: [], // 不允许任何标签
     allowedAttributes: {},
-    // biome-ignore lint/suspicious/noControlCharactersInRegex: Intentional - filtering invalid XML characters
-    textFilter: (text) => text.replace(/[^\x09\x0A\x0D\x20-\xFF\x85\xA0-\uD7FF\uE000-\uFDCF\uFDE0-\uFFFD]/gm, ""),
+    // Intentional: filtering invalid XML characters
+    // oxlint-disable-next-line no-control-regex
+    textFilter: (text) => text.replace(/[^\u0009\u000A\u000D\u0020-\u00FF\u0085\u00A0-\uD7FF\uE000-\uFDCF\uFDE0-\uFFFD]/gm, ""),
   });
   // 截取指定长度，并确保不会截断词语
   if (text.length <= length) return text;
