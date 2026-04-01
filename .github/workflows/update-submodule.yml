@@ -1,0 +1,29 @@
+name: Update Blog Submodule
+
+on:
+  repository_dispatch:
+    types: [blog-updated]
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+
+      - name: Update submodule
+        run: |
+          git submodule sync --recursive
+          git submodule update --init --recursive --remote
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update blog submodule"
+            git push
+          fi

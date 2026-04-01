@@ -1,0 +1,24 @@
+---
+/**
+ * Comment Router Component
+ *
+ * Selects the appropriate comment provider based on site configuration.
+ * Supports: giscus, none
+ */
+import { commentConfig } from "@/constants/site-config";
+import { cn } from "@/lib/utils";
+
+const provider = commentConfig.provider ?? "none";
+const Provider = (await import("./providers/GiscusClient.astro")).default;
+---
+
+{
+  provider !== "none" && Provider && (
+    <div class={cn("comments w-full")}>
+      <p class="text-muted-foreground mb-4 text-center text-sm">
+        喜欢的话，留下你的评论吧～
+      </p>
+      <Provider />
+    </div>
+  )
+}
