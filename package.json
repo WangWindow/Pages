@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "@antv/infographic": "^0.2.16",
-    "@astrojs/cloudflare": "^13.1.6",
     "@astrojs/node": "^10.0.4",
     "@astrojs/react": "^5.0.2",
     "@astrojs/rss": "^4.0.18",

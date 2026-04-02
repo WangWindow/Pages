@@ -1,4 +1,4 @@
-import { animation as animationTokens, borderRadius, colors, shadows } from "./src/constants/design-tokens.ts";
+import { animation as animationTokens, borderRadius, colors, shadows } from "./src/constants/design-tokens.js";
 
 /** @type {import('tailwindcss').Config} */
 export default {

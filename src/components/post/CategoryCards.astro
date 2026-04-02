@@ -4,7 +4,13 @@ import { Button } from "@components/ui/button";
 import { categoryMap } from "@constants/category";
 import { Routes } from "@constants/router";
 import { siteConfig } from "@constants/site-config";
-import { type Category, getCategoryByLink, getCategoryList, getParentCategory, getPostsByCategory } from "@lib/content";
+import {
+  type Category,
+  getCategoryByLink,
+  getCategoryList,
+  getParentCategory,
+  getPostsByCategory,
+} from "@lib/content";
 import { toPostRefs } from "@lib/content/transforms";
 import { getLqipStyle } from "@lib/lqip";
 import { routeBuilder } from "@lib/route";
@@ -27,7 +33,8 @@ const { categories } = await getCategoryList();
 const categoryPosts: CategoryWithPosts[] = await Promise.all(
   siteConfig.featuredCategories?.map(async (category) => {
     const categoryInfo = getCategoryByLink(categories, category?.link);
-    const posts = await getPostsByCategory(categoryInfo?.name ?? "");
+    // Use the link directly since posts use English slugs in their categories field
+    const posts = await getPostsByCategory(category?.link ?? "");
     return {
       link: category.link,
       label: category?.label,
@@ -45,15 +52,20 @@ const categoryPosts: CategoryWithPosts[] = await Promise.all(
     categoryPosts.map((category) => {
       const parentCategory = category?.parentCategory;
       const parentCategoryLink = parentCategory
-        ? Routes.Categories + '/' + (category?.link.split('/').slice(0, -1).join('/') ?? '')
-        : '';
+        ? Routes.Categories +
+          "/" +
+          (category?.link.split("/").slice(0, -1).join("/") ?? "")
+        : "";
       const categoryInfo = category?.category;
-      const categoryLink = Routes.Categories + '/' + (category?.link ?? '');
+      const categoryLink = Routes.Categories + "/" + (category?.link ?? "");
       const childrenLen = categoryInfo?.children?.length ?? 0;
       const posts = category?.posts?.slice(0, 6 - (childrenLen ?? 0));
       return (
         <FlippedCard>
-          <div slot="front" class="flex-center relative h-full rounded-md px-2 py-4">
+          <div
+            slot="front"
+            class="flex-center relative h-full rounded-md px-2 py-4"
+          >
             <img
               style={getLqipStyle(category.image)}
               src={category.image}
@@ -63,22 +75,33 @@ const categoryPosts: CategoryWithPosts[] = await Promise.all(
               class="absolute inset-0 -z-10 h-full w-full rounded-md object-cover"
             />
             <div class="bg-shoka-card-mask absolute inset-0 -z-10 h-full w-full rounded-md opacity-25" />
-            <h2 class="text-2xl text-white">{category?.label ?? categoryInfo?.name}</h2>
+            <h2 class="text-2xl text-white">
+              {category?.label ?? categoryInfo?.name}
+            </h2>
             {parentCategory?.name ? (
-              <Badge variant="shoka-tag" className="absolute right-3 top-2.5 text-xs text-white opacity-80 shadow-sm">
+              <Badge
+                variant="shoka-tag"
+                className="absolute right-3 top-2.5 text-xs text-white opacity-80 shadow-sm"
+              >
                 {parentCategory.name}
               </Badge>
             ) : null}
           </div>
-          <div slot="back" class="bg-card relative h-full flex-col rounded-md px-6 pt-16 pb-4">
+          <div
+            slot="back"
+            class="bg-card relative h-full flex-col rounded-md px-6 pt-16 pb-4"
+          >
             <div
               class={cn(
-                'from-gradient-shoka-button-start to-gradient-shoka-button-end absolute top-4 -left-4 grid h-8 max-w-[calc(100%+2rem)] place-items-center rounded-r-md bg-linear-to-l px-4',
+                "from-gradient-shoka-button-start to-gradient-shoka-button-end absolute top-4 -left-4 grid h-8 max-w-[calc(100%+2rem)] place-items-center rounded-r-md bg-linear-to-l px-4",
                 "after:absolute after:top-full after:-left-4 after:h-0 after:w-0 after:border-t-0 after:border-r-16 after:border-b-16 after:border-l-16 after:border-transparent after:content-['']",
-                'after:border-r-gradient-shoka-button-end',
+                "after:border-r-gradient-shoka-button-end",
               )}
             >
-              <a class="hover:animate-shake block text-base text-white" href={categoryLink}>
+              <a
+                class="hover:animate-shake block text-base text-white"
+                href={categoryLink}
+              >
                 {category?.label || categoryInfo?.name}
               </a>
             </div>
@@ -86,7 +109,7 @@ const categoryPosts: CategoryWithPosts[] = await Promise.all(
               {categoryInfo?.children?.length
                 ? categoryInfo.children.map((child) => (
                     <a
-                      href={categoryLink + '/' + categoryMap[child?.name]}
+                      href={categoryLink + "/" + categoryMap[child?.name]}
                       class="text-primary hover:text-blue truncate text-left transition-colors duration-300"
                     >
                       {child.name}
@@ -114,14 +137,20 @@ const categoryPosts: CategoryWithPosts[] = await Promise.all(
               ) : null}
               <Fragment>
                 <Icon name="gg:loadbar-doc" class="mr-0.5 text-base" />
-                {categoryInfo?.children?.length ? `${categoryInfo.children.length} 个子分类，` : ''}
+                {categoryInfo?.children?.length
+                  ? `${categoryInfo.children.length} 个子分类，`
+                  : ""}
                 {category.posts?.length} 篇文章
               </Fragment>
             </p>
-            <a href={categoryLink} aria-label="more info" class="absolute right-0 bottom-0">
+            <a
+              href={categoryLink}
+              aria-label="more info"
+              class="absolute right-0 bottom-0"
+            >
               <Button
                 className={cn(
-                  'bg-gradient-shoka-button rounded-2xl rounded-se-none rounded-es-none transition-all hover:translate-x-1 hover:translate-y-1 hover:scale-105 md:h-7 md:px-2 md:py-1 md:text-xs',
+                  "bg-gradient-shoka-button rounded-2xl rounded-se-none rounded-es-none transition-all hover:translate-x-1 hover:translate-y-1 hover:scale-105 md:h-7 md:px-2 md:py-1 md:text-xs",
                 )}
               >
                 more...
