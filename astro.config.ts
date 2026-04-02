@@ -1,5 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
+import cloudflare from "@astrojs/cloudflare";
+import keystatic from "@keystatic/astro";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import yaml from "@rollup/plugin-yaml";
@@ -32,6 +34,8 @@ const robotsConfig = yamlConfig.seo?.robots;
 // https://astro.build/config
 export default defineConfig({
   site: yamlConfig.site.url,
+  output: "static",
+  adapter: cloudflare(),
   compressHTML: true,
   markdown: {
     // Enable GitHub Flavored Markdown
@@ -74,6 +78,7 @@ export default defineConfig({
   },
   integrations: [
     react(),
+    keystatic(),
     sitemap(),
     icon({
       include: {
