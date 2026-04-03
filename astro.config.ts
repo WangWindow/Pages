@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import cloudflare from "@astrojs/cloudflare";
-import keystatic from "@keystatic/astro";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import yaml from "@rollup/plugin-yaml";
@@ -78,7 +77,6 @@ export default defineConfig({
   },
   integrations: [
     react(),
-    keystatic(),
     sitemap(),
     icon({
       include: {

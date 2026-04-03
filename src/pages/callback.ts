@@ -1,0 +1,63 @@
+import type { APIRoute } from "astro";
+
+export const prerender = false;
+
+export const GET: APIRoute = async ({ request, locals }) => {
+  const requestUrl = new URL(request.url);
+  const code = requestUrl.searchParams.get("code");
+  const clientId = locals.runtime?.env?.GITHUB_CLIENT_ID;
+  const clientSecret = locals.runtime?.env?.GITHUB_CLIENT_SECRET;
+
+  if (!code) {
+    return new Response("Missing code", { status: 400 });
+  }
+
+  if (!clientId || !clientSecret) {
+    return new Response("Missing GitHub OAuth env vars", { status: 500 });
+  }
+
+  const tokenResponse = await fetch("https://github.com/login/oauth/access_token", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      client_id: clientId,
+      client_secret: clientSecret,
+      code,
+    }),
+  });
+
+  if (!tokenResponse.ok) {
+    return new Response(`GitHub token exchange failed: ${tokenResponse.status}`, { status: 502 });
+  }
+
+  const tokenData = await tokenResponse.json() as { access_token?: string };
+  const accessToken = tokenData.access_token;
+
+  if (!accessToken) {
+    return new Response("GitHub token missing in response", { status: 502 });
+  }
+
+  const html = `<!doctype html>
+<html>
+  <body>
+    <script>
+      const receiveMessage = (e) => {
+        window.opener.postMessage(
+          'authorization:github:success:{"token":"${accessToken}"}',
+          e.origin
+        );
+        window.removeEventListener("message", receiveMessage);
+      };
+      window.addEventListener("message", receiveMessage);
+      window.opener.postMessage("authorizing:github", "*");
+    </script>
+  </body>
+</html>`;
+
+  return new Response(html, {
+    headers: { "Content-Type": "text/html; charset=UTF-8" },
+  });
+};

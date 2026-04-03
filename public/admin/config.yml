@@ -1,0 +1,105 @@
+backend:
+  name: github
+  repo: WangWindow/Blogs
+  branch: main
+  base_url: https://wangwindow.pages.dev
+
+# 全局媒体（用于非文章内容，如通用素材）
+media_folder: "uploads"
+public_folder: "/uploads"
+
+# 定义可复用的字段模板
+_post_fields: &post_fields
+  - label: "标题"
+    name: "title"
+    widget: "string"
+    required: true
+  - label: "发布日期"
+    name: "date"
+    widget: "datetime"
+    required: true
+    date_format: "YYYY-MM-DD"
+    time_format: "HH:mm:ssZ"
+    format: "YYYY-MM-DDTHH:mm:ssZ"
+  - label: "描述"
+    name: "description"
+    widget: "text"
+    required: false
+  - label: "封面图片"
+    name: "cover"
+    widget: "image"
+    required: false
+    media_folder: ""
+    public_folder: "./"
+  - label: "分类"
+    name: "categories"
+    widget: "list"
+    required: false
+  - label: "标签"
+    name: "tags"
+    widget: "list"
+    required: false
+  - label: "草稿"
+    name: "draft"
+    widget: "boolean"
+    default: false
+    required: false
+  - label: "置顶"
+    name: "sticky"
+    widget: "boolean"
+    default: false
+    required: false
+  - label: "摘要"
+    name: "summary"
+    widget: "text"
+    required: false
+  - label: "正文"
+    name: "body"
+    widget: "markdown"
+
+collections:
+  - name: "posts-2026"
+    label: "2026 年文章"
+    folder: "posts/2026"
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: "./"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    sortable_fields: ["date", "title"]
+    view_filters:
+      - label: "草稿"
+        field: draft
+        pattern: true
+      - label: "已发布"
+        field: draft
+        pattern: false
+    view_groups:
+      - label: "分类"
+        field: categories
+    fields: *post_fields
+
+  - name: "posts-2025"
+    label: "2025 年文章"
+    folder: "posts/2025"
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: "./"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    sortable_fields: ["date", "title"]
+    view_filters:
+      - label: "草稿"
+        field: draft
+        pattern: true
+      - label: "已发布"
+        field: draft
+        pattern: false
+    view_groups:
+      - label: "分类"
+        field: categories
+    fields: *post_fields
