@@ -54,7 +54,7 @@ function createYearCollection(year: string): Collection<typeof postSchema, "titl
   return collection({
     label: `${year} 年文章`,
     slugField: "title",
-    path: `src/content/blog/posts/${year}/*/`,
+    path: `posts/${year}/*/`,
     format: { contentField: "content" },
     entryLayout: "content",
     schema: postSchema,
@@ -69,10 +69,10 @@ for (const year of BLOG_YEARS) {
 export default config({
   storage: isProd
     ? {
-        kind: "github",
-        repo: "WangWindow/Blogs",
-        branchPrefix: "cms/",
-      }
+      kind: "github",
+      repo: "WangWindow/Blogs",
+      branchPrefix: "cms/",
+    }
     : { kind: "local" },
 
   ui: {
@@ -91,7 +91,7 @@ export default config({
     weekly: collection({
       label: "周刊",
       slugField: "title",
-      path: "src/content/blog/posts/weekly/*/",
+      path: "posts/weekly/*/",
       format: { contentField: "content" },
       entryLayout: "content",
       schema: {
