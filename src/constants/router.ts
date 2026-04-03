@@ -29,7 +29,7 @@ export const RESERVED_ROUTES = new Set([
   "archives",
   "404",
   // CMS admin
-  "admin",
+  "keystatic",
   // Special files
   "rss.xml",
   "sitemap.xml",
