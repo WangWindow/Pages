@@ -44,8 +44,9 @@ const postSchema = {
     multiline: true,
     description: "AI 生成或手动编写的文章摘要",
   }),
-  content: fields.mdx({
+  content: fields.markdoc({
     label: "正文",
+    extension: "md",
   }),
 };
 
@@ -86,7 +87,7 @@ export default config({
 
   collections: {
     ...yearCollections,
-    
+
     weekly: collection({
       label: "周刊",
       slugField: "title",
@@ -128,6 +129,7 @@ export default config({
         }),
         content: fields.mdx({
           label: "正文",
+          extension: "md",
         }),
       },
     }),
