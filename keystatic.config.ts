@@ -57,6 +57,7 @@ function createYearCollection(year: string): Collection<typeof postSchema, "titl
     path: `posts/${year}/*/`,
     format: { contentField: "content" },
     entryLayout: "content",
+    columns: ["title", "date", "categories", "tags"],
     schema: postSchema,
   });
 }
@@ -94,6 +95,7 @@ export default config({
       path: "posts/weekly/*/",
       format: { contentField: "content" },
       entryLayout: "content",
+      columns: ["title", "date", "categories", "tags"],
       schema: {
         title: fields.slug({
           name: { label: "标题", validation: { isRequired: true } },
