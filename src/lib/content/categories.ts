@@ -126,18 +126,32 @@ export function getCategoryNameByLink(link: string): string {
  * Get category by link
  */
 export function getCategoryByLink(categories: Category[], link?: string): Category | null {
-  const name = getCategoryNameByLink(link ?? "");
-  if (!name || !categories?.length) return null;
+  // Normalize and get last segment from link
+  if (!link || !categories?.length) return null;
+  const cleanLink = link.replace(/^\/+|\/+$/g, "");
+  const segments = cleanLink.split("/").filter(Boolean);
+  if (!segments.length) return null;
+  const lastSegment = decodeURIComponent(segments[segments.length - 1]);
+
   for (let i = 0; i < categories.length; ++i) {
     const category = categories[i];
-    if (category.name === name) {
+
+    // Compute slug for current category: prefer mapping in categoryMap, fallback to
+    // lowercased hyphenated name (same logic as getCategoryLinks/buildCategoryPath)
+    const mapped = categoryMap[category.name];
+    const slug = mapped || category.name.toLowerCase().replace(/\s+/g, "-");
+    const encoded = encodeSlug(slug);
+
+    if (encoded === lastSegment) {
       return category;
     }
+
     if (category?.children?.length) {
       const res = getCategoryByLink(category.children, link);
       if (res) return res;
     }
   }
+
   return null;
 }
 
@@ -184,7 +198,7 @@ export function buildCategoryPath(categoryNames: string | string[]): string {
       return mapped || name.toLowerCase().replace(/\s+/g, "-");
     })
     .map((slug) => encodeSlug(slug));
-  
+
   return `/categories/${slugs.join("/")}`;
 }
 
