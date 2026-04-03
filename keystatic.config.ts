@@ -47,6 +47,12 @@ const postSchema = {
   content: fields.markdoc({
     label: "正文",
     extension: "md",
+    options: {
+      image: {
+        directory: ".",
+        publicPath: "./",
+      },
+    },
   }),
 };
 
@@ -129,9 +135,15 @@ export default config({
           label: "摘要",
           multiline: true,
         }),
-        content: fields.mdx({
+        content: fields.markdoc({
           label: "正文",
           extension: "md",
+          options: {
+            image: {
+              directory: ".",
+              publicPath: "./",
+            },
+          },
         }),
       },
     }),
