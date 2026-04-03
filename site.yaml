@@ -33,7 +33,6 @@ categoryMap:
   随笔: life
   笔记: note
   工具: tool
-  周刊: weekly
   编程: programming
   项目: project
   # Secondary categories (for nested paths)
@@ -79,7 +78,7 @@ featuredCategories:
 # 精选系列功能 - 用于展示定期更新的系列内容（支持多个系列）
 # =============================================================================
 # 字段说明：
-#   slug: URL 路径（必填），如 'weekly' 对应 /weekly 路径
+#   slug: URL 路径（必填），如 'reading' 对应 /reading 路径
 #         注意：不能与保留路由冲突，包括：about, categories, tags, friends, posts, archives, api, _astro, rss.xml, sitemap.xml, robots.txt, favicon.ico 等
 #   categoryName: 对应的分类名称（必填，需在 categoryMap 中存在）
 #   label: 侧边栏/导航中显示的简短名称（可选）
@@ -92,29 +91,13 @@ featuredCategories:
 #   links: 相关链接配置（可选）
 # -----------------------------------------------------------------------------
 featuredSeries:
-  - slug: weekly # URL 路径: /weekly
-    categoryName: 周刊 # 必须与 categoryMap 中的分类名匹配
-    label: 我的周刊 # 简短名称
-    fullName: 我的技术周刊 # 完整名称
-    description: | # 支持多行 Markdown
-      这是周刊/系列文章功能的示例配置。
-      你可以用它来发布定期更新的系列内容，如技术周刊、读书笔记系列等。
-      设置 enabled: false 可以关闭此功能。
-    cover: /img/A006.png # 系列页面头图
-    enabled: true # 启用此系列
-    icon: ri:newspaper-line # 导航图标
-    links: # 相关链接（可选）
-      github: https://github.com/your-username/your-repo # (可选) GitHub 仓库
-      rss: /rss.xml # (可选) RSS 订阅链接
-      # chrome: https://chromewebstore.google.com/detail/your-extension-id # (可选) 浏览器插件
-      # docs: https://your-docs-url # (可选) 文档链接
-  # 示例：添加第二个系列（取消注释启用）
+  # 示例：添加系列（取消注释启用）
   # - slug: reading # URL 路径: /reading
   #   categoryName: 书摘
   #   label: 读书笔记
   #   fullName: 我的读书笔记
   #   description: 阅读记录与读后感
-  #   cover: /img/weekly_header.webp # 记得添加，我这里就是个示例
+  #   cover: /img/reading_header.webp # 记得添加，我这里就是个示例
   #   enabled: true
   #   icon: ri:book-read-line
 
@@ -301,11 +284,6 @@ navigation:
   - name: 首页 # 菜单显示名称
     path: / # 链接路径
     icon: ri:home-heart-fill # 图标
-  # - name: 书摘
-  #   path: /reading
-  - name: 周刊
-    path: /weekly
-    icon: ri:newspaper-line
   - name: 文章 # 有子菜单时，path 可省略
     icon: ri:quill-pen-ai-fill
     children: # 子菜单列表

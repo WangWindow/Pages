@@ -26,7 +26,9 @@ const dateInSiteTimezone = z
   });
 
 const blogCollection = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/blog/posts" }),
+  // Only load posts under year directories like posts/2025/*/index.md.
+  // This intentionally excludes legacy paths such as posts/weekly/*.
+  loader: glob({ pattern: "[0-9][0-9][0-9][0-9]/**/*.md", base: "./src/content/blog/posts" }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),

@@ -88,64 +88,10 @@ export default config({
     },
     navigation: {
       文章: Object.keys(yearCollections),
-      周刊: ["weekly"],
     },
   },
 
   collections: {
     ...yearCollections,
-
-    weekly: collection({
-      label: "周刊",
-      slugField: "title",
-      path: "posts/weekly/*/",
-      format: { contentField: "content" },
-      entryLayout: "content",
-      columns: ["title", "date", "categories", "tags"],
-      schema: {
-        title: fields.slug({
-          name: { label: "标题", validation: { isRequired: true } },
-        }),
-        date: fields.datetime({
-          label: "发布日期",
-          validation: { isRequired: true },
-        }),
-        description: fields.text({
-          label: "描述",
-          multiline: false,
-        }),
-        cover: fields.image({
-          label: "封面图片",
-          directory: ".",
-          publicPath: "./",
-        }),
-        categories: fields.array(fields.text({ label: "分类" }), {
-          label: "分类",
-          itemLabel: (props) => props.value || "新分类",
-        }),
-        tags: fields.array(fields.text({ label: "标签" }), {
-          label: "标签",
-          itemLabel: (props) => props.value || "新标签",
-        }),
-        draft: fields.checkbox({
-          label: "草稿",
-          defaultValue: false,
-        }),
-        summary: fields.text({
-          label: "摘要",
-          multiline: true,
-        }),
-        content: fields.markdoc({
-          label: "正文",
-          extension: "md",
-          options: {
-            image: {
-              directory: ".",
-              publicPath: "./",
-            },
-          },
-        }),
-      },
-    }),
   },
 });

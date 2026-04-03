@@ -30,15 +30,8 @@ export {
   getFeaturedCategoryNames,
   getHomeHighlightedPosts,
   getHomePagePosts,
-  // Deprecated (kept for backwards compatibility)
-  /** @deprecated Use getHomeHighlightedPosts() instead */
-  getLatestWeeklyPost,
   getNonFeaturedPosts,
   getNonFeaturedPostsBySticky,
-  /** @deprecated Use getNonFeaturedPosts() instead */
-  getNonWeeklyPosts,
-  /** @deprecated Use getNonFeaturedPostsBySticky() instead */
-  getNonWeeklyPostsBySticky,
   getPostCount,
   getPostDescription,
   getPostDescriptionWithSummary,
@@ -51,8 +44,6 @@ export {
   getSeriesBySlug,
   getSeriesPosts,
   getSortedPosts,
-  /** @deprecated Use getPostsBySeriesSlug('weekly') instead */
-  getWeeklyPosts,
 } from "./content/posts";
 
 // =============================================================================
