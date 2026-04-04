@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: WangWindow/Blogs
-  branch: main
+  branch: cms/sveltia # CMS 推送到专用分支，自动优化合并到 main
   base_url: https://wangwindow.pages.dev
 
 # 全局媒体（用于非文章内容，如通用素材）
