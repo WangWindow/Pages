@@ -10,6 +10,12 @@ public_folder: "/uploads"
 
 # 定义可复用的字段模板
 _post_fields: &post_fields
+  - label: "Slug"
+    name: "slug"
+    widget: "string"
+    required: true
+    pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "只能使用小写字母、数字和连字符"]
+    hint: "文章的 URL 路径名，如 my-first-post"
   - label: "标题"
     name: "title"
     widget: "string"
@@ -61,14 +67,17 @@ collections:
   - name: "posts-2026"
     label: "2026 年文章"
     folder: "posts/2026"
-    path: "{{slug}}/index"
+    path: "{{fields.slug}}/index"
     media_folder: ""
     public_folder: "./"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.slug}}"
+    identifier_field: slug
     extension: "md"
     format: "frontmatter"
     sortable_fields: ["date", "title"]
+    summary: "{{title}}"
+    summary_fields: ["date", "title", "categories", "tags", "draft"]
     view_filters:
       - label: "草稿"
         field: draft
@@ -79,19 +88,24 @@ collections:
     view_groups:
       - label: "分类"
         field: categories
+      - label: "标签"
+        field: tags
     fields: *post_fields
 
   - name: "posts-2025"
     label: "2025 年文章"
     folder: "posts/2025"
-    path: "{{slug}}/index"
+    path: "{{fields.slug}}/index"
     media_folder: ""
     public_folder: "./"
     create: true
-    slug: "{{slug}}"
+    slug: "{{fields.slug}}"
+    identifier_field: slug
     extension: "md"
     format: "frontmatter"
     sortable_fields: ["date", "title"]
+    summary: "{{title}}"
+    summary_fields: ["date", "title", "categories", "tags", "draft"]
     view_filters:
       - label: "草稿"
         field: draft
@@ -102,4 +116,6 @@ collections:
     view_groups:
       - label: "分类"
         field: categories
+      - label: "标签"
+        field: tags
     fields: *post_fields
