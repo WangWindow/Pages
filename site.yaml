@@ -114,14 +114,22 @@ featuredSeries:
 # 添加新平台：复制现有配置块，修改键名和各字段值即可
 # -----------------------------------------------------------------------------
 social:
+  site:
+    url: https://modestwang.cn
+    icon: ri:global-fill
+    color: '#4b9ae4'
   github:
     url: https://github.com/WangWindow # 替换为你的 GitHub 链接
     icon: ri:github-fill # Remix Icon 的 GitHub 图标
     color: '#191717' # (可选) 图标颜色
-  email:
-    url: mailto:wangwindow2004@gmail.com # 替换为你的邮箱，需加 mailto: 前缀
-    icon: ri:mail-line
-    color: '#55acd5'
+  bilibili:
+    url: https://space.bilibili.com/440416735
+    icon: ri:bilibili-fill
+    color: '#da708a'
+  zhihu:
+    url: https://www.zhihu.com/people/wang-wei-dong-28-54
+    icon: ri:zhihu-fill
+    color: '#1e88e5'
   rss:
     url: /rss.xml # 站内 RSS 订阅地址
     icon: ri:rss-line
@@ -129,14 +137,14 @@ social:
   # -------------------------------------------------------------------------
   # 以下是更多可选的社交平台配置示例，取消注释并修改即可启用：
   # -------------------------------------------------------------------------
+  # email:
+  #   url: mailto:mail@gmail.com # 替换为你的邮箱，需加 mailto: 前缀
+  #   icon: ri:mail-line
+  #   color: '#55acd5'
   # twitter:
   #   url: https://x.com/your-handle
   #   icon: ri:twitter-fill
   #   color: '#4b9ae4'
-  # bilibili:
-  #   url: https://space.bilibili.com/your-id
-  #   icon: ri:bilibili-fill
-  #   color: '#da708a'
   # zhihu:
   #   url: https://www.zhihu.com/people/your-id
   #   icon: ri:zhihu-fill
