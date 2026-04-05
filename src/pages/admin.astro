@@ -7,9 +7,14 @@
     <title>内容管理 - WangWindow's Blog</title>
   </head>
   <body>
-    <!-- Sveltia CMS - modern Decap CMS alternative with built-in GitHub OAuth -->
-    <script
-      src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"
-      type="module"></script>
+    <!-- Sveltia CMS with JavaScript configuration -->
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
+    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+    <script type="module">
+      import config from "/admin/config.js";
+      CMS.init({ config: config });
+    </script>
   </body>
 </html>
