@@ -33,7 +33,7 @@ categoryMap:
   随笔: life
   笔记: note
   工具: tool
-  编程: programming
+  编程: program
   项目: project
   # Secondary categories (for nested paths)
   前端: front-end
@@ -64,7 +64,7 @@ featuredCategories:
   # - link: note/front-end # 嵌套分类：笔记/前端
   #   label: 前端
   #   image: /img/cover/1.webp
-  - link: programming
+  - link: program
     label: 编程
     image: /img/cover/1.webp
     description: 编程语言、实践经验
