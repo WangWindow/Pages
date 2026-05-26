@@ -315,17 +315,18 @@ navigation:
 # Comment System
 # =============================================================================
 comment:
-  provider: none  # 'giscus' | 'none'
-  # giscus:
-  #   repo: username/repo              # GitHub 仓库名 (owner/repo 格式)
-  #   repoId: R_kgDOxxxxxx             # 仓库 ID (从 giscus.app 获取)
-  #   category: Announcements          # Discussion 分类名称
-  #   categoryId: DIC_kwDOxxxxxx       # 分类 ID (从 giscus.app 获取)
-  #   mapping: pathname                # 映射方式
-  #   reactionsEnabled: '1'            # 启用 reactions ('0' | '1')
-  #   emitMetadata: '0'                # 发送元数据 ('0' | '1')
-  #   inputPosition: top               # 输入框位置 ('top' | 'bottom')
-  #   lang: zh-CN                      # 语言
+  provider: giscus
+  giscus:
+    repo: WangWindow/Blogs
+    repoId: R_kgDORoITkg
+    category: Comments
+    categoryId: DIC_kwDORoITks4C96YC
+    mapping: pathname
+    strict: '0'
+    reactionsEnabled: '1'
+    emitMetadata: '0'
+    inputPosition: top
+    lang: zh-CN
 
 # =============================================================================
 # SEO Configuration

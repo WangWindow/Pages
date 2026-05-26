@@ -2,6 +2,13 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,macos,linux,astro,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,visualstudiocode,macos,linux,astro,node
 
+### AI Agents ###
+.claude/
+.codex/
+.gemini/
+.opencode/
+.omo/
+
 ### Astro ###
 # Gitignore template for Astro projects
 # Ignore content collection generated files
