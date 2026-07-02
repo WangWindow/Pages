@@ -44,7 +44,7 @@ export default function PostFooterLists({ allPosts, relatedPosts, leftCount, rig
           {leftPosts.map((post, index) => (
             <a
               key={post.slug}
-              href={`/post/${encodeSlug(post.link ?? post.slug)}`}
+              href={`/posts/${encodeSlug(post.link ?? post.slug)}`}
               className="group flex gap-3 rounded-md p-2 text-sm transition-colors duration-300 hover:bg-foreground/5 hover:text-primary"
             >
               <span className="shrink-0 font-mono text-foreground/30">{index + 1}</span>
@@ -65,7 +65,7 @@ export default function PostFooterLists({ allPosts, relatedPosts, leftCount, rig
             {rightPosts.map((post, index) => (
               <a
                 key={post.slug}
-                href={`/post/${encodeSlug(post.link ?? post.slug)}`}
+                href={`/posts/${encodeSlug(post.link ?? post.slug)}`}
                 className="group flex gap-3 rounded-md p-2 text-sm transition-colors duration-300 hover:bg-foreground/5 hover:text-primary"
               >
                 <span className="shrink-0 font-mono text-foreground/30">{index + (hasRelatedPosts ? 1 : leftCount + 1)}</span>

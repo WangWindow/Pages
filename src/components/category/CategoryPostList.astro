@@ -16,13 +16,23 @@ const { categories, countMap, rootCategory } = Astro.props;
 const posts = await getPostsByCategory(rootCategory?.name ?? "");
 ---
 
-<div class={`shadow-box mx-0 flex w-full flex-col bg-gradient-start ${CONTENT_PADDING.normal}`}>
+<div
+  class={`shadow-box mx-0 flex w-full flex-col bg-gradient-start ${CONTENT_PADDING.normal}`}
+>
   <h2
-    class={cn('shoka-decoration-circle px-6 group relative py-5 text-2xl/9 font-bold', {
-      'has-children': posts?.length || rootCategory?.children?.length,
-    })}
+    class={cn(
+      "shoka-decoration-circle px-6 group relative py-5 text-2xl/9 font-bold",
+      {
+        "has-children": posts?.length || rootCategory?.children?.length,
+      },
+    )}
   >
-    <a href="/" class="dashed-border text-muted-foreground hover:text-blue border-b"> 首页 </a>
+    <a
+      href="/"
+      class="dashed-border text-muted-foreground hover:text-blue border-b"
+    >
+      首页
+    </a>
     <span class="text-muted-foreground mx-2 text-xl">/</span>
     <span class="text-muted-foreground">{rootCategory?.name}</span>
     <span class="text-muted-foreground mx-2 text-xl">分类</span>
@@ -36,7 +46,11 @@ const posts = await getPostsByCategory(rootCategory?.name ?? "");
             <div class="category-first-level-container flex flex-col">
               {category?.children?.length &&
                 category.children.map((child) => (
-                  <SubCategory category={child} parentName={category.name} countMap={countMap} />
+                  <SubCategory
+                    category={child}
+                    parentName={category.name}
+                    countMap={countMap}
+                  />
                 ))}
             </div>
           ),
@@ -47,8 +61,13 @@ const posts = await getPostsByCategory(rootCategory?.name ?? "");
         <div class="category-second-level-container flex flex-col">
           {posts.map((post) => (
             <p class="shoka-decoration-circle group text-primary hover:text-blue relative px-6 py-2 text-base/9">
-              <span class="text-muted-foreground mr-2 text-xs">{displayDate.shortDate(post.data.date)}</span>
-              <a href={`/post/${encodeSlug(post?.data?.link ?? post.id)}`} class="dashed-border">
+              <span class="text-muted-foreground mr-2 text-xs">
+                {displayDate.shortDate(post.data.date)}
+              </span>
+              <a
+                href={`/posts/${encodeSlug(post?.data?.link ?? post.id)}`}
+                class="dashed-border"
+              >
                 {post?.data?.title}
               </a>
             </p>

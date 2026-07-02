@@ -14,10 +14,17 @@ import CategoryCards from "@/components/post/CategoryCards.astro";
 import Divider from "@/components/ui/divider";
 
 // 使用优化的单次查询获取所有首页数据
-const { highlightedPosts, stickyPosts: normalStickyPosts, regularPosts } = await getHomePagePosts();
+const {
+  highlightedPosts,
+  stickyPosts: normalStickyPosts,
+  regularPosts,
+} = await getHomePagePosts();
 
 // 将高亮系列文章放在置顶列表开头（转换为卡片数据）
-const stickyPosts = toPostCardDataList([...highlightedPosts, ...normalStickyPosts]);
+const stickyPosts = toPostCardDataList([
+  ...highlightedPosts,
+  ...normalStickyPosts,
+]);
 
 // 首页显示前N篇普通文章（不含系列文章）
 const { pageSize } = PAGINATION;
@@ -36,9 +43,9 @@ const page: Page<BlogPost> = {
   url: {
     current: "/",
     prev: undefined,
-    next: totalRegularPosts > pageSize ? "/posts/2" : undefined,
+    next: totalRegularPosts > pageSize ? "/post/2" : undefined,
     first: "/",
-    last: `/posts/${Math.ceil(totalRegularPosts / pageSize)}`,
+    last: `/post/${Math.ceil(totalRegularPosts / pageSize)}`,
   },
 };
 ---
@@ -50,14 +57,22 @@ const page: Page<BlogPost> = {
     <div
       class={`bg-gradient-start shadow-box tablet:shadow-none flex flex-col gap-4 overflow-hidden  ${CONTENT_PADDING.standard}`}
     >
-      {stickyPosts.length > 0 && (
-        <>
-          <Divider>置顶文章</Divider>
-          <PostList posts={stickyPosts} showPaginator={false} />
-        </>
-      )}
+      {
+        stickyPosts.length > 0 && (
+          <>
+            <Divider>置顶文章</Divider>
+            <PostList posts={stickyPosts} showPaginator={false} />
+          </>
+        )
+      }
       <Divider>文章列表</Divider>
-      <PostList posts={posts} page={page} showPaginator={true} baseUrl="/posts" isHomePage={true} />
+      <PostList
+        posts={posts}
+        page={page}
+        showPaginator={true}
+        baseUrl="/post"
+        isHomePage={true}
+      />
       <Divider className="mt-6">精选分类</Divider>
       <CategoryCards />
     </div>

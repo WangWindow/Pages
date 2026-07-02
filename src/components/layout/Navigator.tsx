@@ -67,7 +67,7 @@ const Navigator = memo(function Navigator({ currentPath }: NavigatorProps) {
   useEffect(() => {
     const checkPostPageMobile = () => {
       const isMobile = window.innerWidth <= 992;
-      const isPostPage = window.location.pathname.startsWith("/post/");
+      const isPostPage = window.location.pathname.startsWith("/posts/");
       setIsPostPageMobile(isMobile && isPostPage);
     };
 

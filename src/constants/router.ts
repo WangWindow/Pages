@@ -12,7 +12,7 @@ export enum Routes {
   Categories = "/categories",
   Tags = "/tags",
   Friends = "/friends",
-  Post = "/post",
+  Post = "/posts",
   Archives = "/archives",
 }
 
