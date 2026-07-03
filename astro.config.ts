@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import cloudflare from "@astrojs/cloudflare";
 import { unified } from "@astrojs/markdown-remark";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
@@ -35,9 +34,6 @@ const robotsConfig = yamlConfig.seo?.robots;
 export default defineConfig({
   site: yamlConfig.site.url,
   output: "static",
-  adapter: cloudflare({
-    prerenderEnvironment: "node",
-  }),
   compressHTML: true,
   markdown: {
     processor: unified({
