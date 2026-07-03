@@ -8,11 +8,11 @@
   </head>
   <body>
     <!-- Sveltia CMS with JavaScript configuration -->
-    <script>
+    <script is:inline>
       window.CMS_MANUAL_INIT = true;
     </script>
-    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
-    <script type="module">
+    <script is:inline src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+    <script type="module" is:inline>
       import config from "/admin/config.js";
       CMS.init({ config: config });
     </script>

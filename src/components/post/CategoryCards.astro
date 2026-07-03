@@ -1,20 +1,20 @@
 ---
-import { Badge } from "@components/ui/badge";
-import { Button } from "@components/ui/button";
-import { categoryMap } from "@constants/category";
-import { Routes } from "@constants/router";
-import { siteConfig } from "@constants/site-config";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { categoryMap } from "@/constants/category";
+import { Routes } from "@/constants/router";
+import { siteConfig } from "@/constants/site-config";
 import {
   type Category,
   getCategoryByLink,
   getCategoryList,
   getParentCategory,
   getPostsByCategory,
-} from "@lib/content";
-import { toPostRefs } from "@lib/content/transforms";
-import { getLqipStyle } from "@lib/lqip";
-import { routeBuilder } from "@lib/route";
-import { cn } from "@lib/utils";
+} from "@/lib/content";
+import { toPostRefs } from "@/lib/content/transforms";
+import { getLqipStyle } from "@/lib/lqip";
+import { routeBuilder } from "@/lib/route";
+import { cn } from "@/lib/utils";
 import { Icon } from "astro-icon/components";
 import type { PostRef } from "@/types/blog";
 import FlippedCard from "./FlippedCard.astro";

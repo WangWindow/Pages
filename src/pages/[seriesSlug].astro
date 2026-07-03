@@ -1,14 +1,14 @@
 ---
-import HomeSider from "@components/layout/HomeSider.astro";
-import PostList from "@components/post/PostList.astro";
-import SeriesCover from "@components/ui/cover/SeriesCover.astro";
-import { CONTENT_PADDING } from "@constants/layout";
-import { siteConfig } from "@constants/site-config";
-import Layout from "@layouts/Layout.astro";
-import TwoColumnLayout from "@layouts/TwoColumnLayout.astro";
-import type { FeaturedSeriesItem } from "@lib/config/types";
-import { getEnabledSeries, getPostsByCategory } from "@lib/content";
-import { toPostCardDataList } from "@lib/content/transforms";
+import HomeSider from "@/components/layout/HomeSider.astro";
+import PostList from "@/components/post/PostList.astro";
+import SeriesCover from "@/components/ui/cover/SeriesCover.astro";
+import { CONTENT_PADDING } from "@/constants/layout";
+import { siteConfig } from "@/constants/site-config";
+import Layout from "@/layouts/Layout.astro";
+import TwoColumnLayout from "@/layouts/TwoColumnLayout.astro";
+import type { FeaturedSeriesItem } from "@/lib/config/types";
+import { getEnabledSeries, getPostsByCategory } from "@/lib/content";
+import { toPostCardDataList } from "@/lib/content/transforms";
 import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths: GetStaticPaths = async () => {

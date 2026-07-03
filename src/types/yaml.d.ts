@@ -5,7 +5,7 @@
 
 // Specific type declarations for each config file
 declare module "*/site.yaml" {
-  import type { SiteYamlConfig } from "@lib/config/types";
+  import type { SiteYamlConfig } from "@/lib/config/types";
   const value: SiteYamlConfig;
   export default value;
 }

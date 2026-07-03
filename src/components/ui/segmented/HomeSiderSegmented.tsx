@@ -1,7 +1,7 @@
-import { type OptionType, Segmented } from "@components/ui/segmented";
-import type { HomeSiderSegmentType } from "@constants/enum";
-import { HomeSiderSegmentType as SegmentTypeEnum } from "@constants/enum";
-import { homeSiderSegmentType } from "@store/app";
+import { type OptionType, Segmented } from "@/components/ui/segmented";
+import type { HomeSiderSegmentType } from "@/constants/enum";
+import { HomeSiderSegmentType as SegmentTypeEnum } from "@/constants/enum";
+import { homeSiderSegmentType } from "@/store/app";
 import React from "react";
 import { RiArticleLine, RiDashboard3Line, RiListOrdered2 } from "react-icons/ri";
 import { cn } from "@/lib/utils";

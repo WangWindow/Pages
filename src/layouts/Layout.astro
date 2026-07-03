@@ -1,6 +1,6 @@
 ---
-import type { HomeSiderType } from "@constants/enum";
-import type { BlogPost } from "types/blog";
+import type { HomeSiderType } from "@/constants/enum";
+import type { BlogPost } from "@/types/blog";
 
 interface Props {
   title: string;
@@ -10,23 +10,23 @@ interface Props {
 }
 
 import { ClientRouter } from "astro:transitions";
-import AnnouncementProvider from "@components/announcement/AnnouncementProvider.astro";
-import FloatingGroup from "@components/layout/FloatingGroup";
-import Header from "@components/layout/Header.astro";
-import MobileDrawer from "@components/layout/MobileDrawer.astro";
-import SearchDialog from "@components/layout/SearchDialog";
-import SearchPortal from "@components/layout/SearchPortal.astro";
-import CodeBlockFullscreen from "@components/markdown/CodeBlockFullscreen";
-import InfographicFullscreen from "@components/markdown/InfographicFullscreen.astro";
-import MermaidFullscreen from "@components/markdown/MermaidFullscreen.astro";
-import { Toaster } from "@components/ui/sonner";
-import { seoConfig, siteConfig } from "@constants/site-config";
-import { getOgImageUrl } from "@lib/seo/og-image";
+import AnnouncementProvider from "@/components/announcement/AnnouncementProvider.astro";
+import FloatingGroup from "@/components/layout/FloatingGroup";
+import Header from "@/components/layout/Header.astro";
+import MobileDrawer from "@/components/layout/MobileDrawer.astro";
+import SearchDialog from "@/components/layout/SearchDialog";
+import SearchPortal from "@/components/layout/SearchPortal.astro";
+import CodeBlockFullscreen from "@/components/markdown/CodeBlockFullscreen";
+import InfographicFullscreen from "@/components/markdown/InfographicFullscreen.astro";
+import MermaidFullscreen from "@/components/markdown/MermaidFullscreen.astro";
+import { Toaster } from "@/components/ui/sonner";
+import { seoConfig, siteConfig } from "@/constants/site-config";
+import { getOgImageUrl } from "@/lib/seo/og-image";
 import LoadingIndicator from "astro-loading-indicator/component";
 import { SEO } from "astro-seo";
 import { Tooltips } from "astro-tooltips";
 
-import "@styles/index.css";
+import "@/styles/index.css";
 
 const {
   title = seoConfig.title,

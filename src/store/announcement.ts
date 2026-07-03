@@ -6,7 +6,7 @@
  * for active/unread announcements.
  */
 
-import { announcements } from "@constants/announcements";
+import { announcements } from "@/constants/announcements";
 import { atom, computed } from "nanostores";
 import type { Announcement } from "@/types/announcement";
 

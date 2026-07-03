@@ -1,17 +1,17 @@
 ---
-import CustomContent from "@components/common/CustomContent.astro";
-import HomeSider from "@components/layout/HomeSider.astro";
-import SummaryPanel, { type SummarySource } from "@components/post/SummaryPanel";
-import Cover from "@components/ui/cover/Cover.astro";
-import { HomeSiderType } from "@constants/enum";
-import { CONTENT_PADDING } from "@constants/layout";
-import { siteConfig } from "@constants/site-config";
-import Layout from "@layouts/Layout.astro";
-import TwoColumnLayout from "@layouts/TwoColumnLayout.astro";
-import { buildCategoryPath, getCategoryArr, getPostDescription, getPostSummary, getSortedPosts } from "@lib/content";
-import { formatForSeo } from "@lib/date";
-import { encodeSlug } from "@lib/route";
-import { getOgImageUrl } from "@lib/seo/og-image";
+import CustomContent from "@/components/common/CustomContent.astro";
+import HomeSider from "@/components/layout/HomeSider.astro";
+import SummaryPanel, { type SummarySource } from "@/components/post/SummaryPanel";
+import Cover from "@/components/ui/cover/Cover.astro";
+import { HomeSiderType } from "@/constants/enum";
+import { CONTENT_PADDING } from "@/constants/layout";
+import { siteConfig } from "@/constants/site-config";
+import Layout from "@/layouts/Layout.astro";
+import TwoColumnLayout from "@/layouts/TwoColumnLayout.astro";
+import { buildCategoryPath, getCategoryArr, getPostDescription, getPostSummary, getSortedPosts } from "@/lib/content";
+import { formatForSeo } from "@/lib/date";
+import { encodeSlug } from "@/lib/route";
+import { getOgImageUrl } from "@/lib/seo/og-image";
 import { Icon } from "astro-icon/components";
 import { Comment } from "@/components/comment";
 import { extractTextFromMarkdown } from "@/lib/sanitize";
@@ -28,7 +28,7 @@ export async function getStaticPaths() {
     };
   });
 }
-const { post, postId } = Astro.props;
+const { post } = Astro.props;
 const { Content } = await render(post);
 const { title, categories = [], tags = [], date } = post?.data ?? {};
 
@@ -116,7 +116,7 @@ if (post.data.description) {
     summarySource = "ai";
   } else {
     // 降级到自动提取
-    summaryText = extractTextFromMarkdown(post.body, 200);
+    summaryText = extractTextFromMarkdown(post.body ?? "", 200);
     summarySource = "auto";
   }
 }

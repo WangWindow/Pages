@@ -1,6 +1,6 @@
 // Import YAML config directly - processed by @rollup/plugin-yaml
 
-import type { FriendLink, FriendsIntro } from "@lib/config/types";
+import type { FriendLink, FriendsIntro } from "@/lib/config/types";
 import yamlConfig from "../../site.yaml";
 
 // Re-export type for backwards compatibility

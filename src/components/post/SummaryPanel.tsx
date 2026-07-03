@@ -6,9 +6,9 @@
  * 支持 prefers-reduced-motion 可访问性
  */
 
-import { ErrorBoundary, InlineErrorFallback } from "@components/common";
-import { usePrefersReducedMotion } from "@hooks/index";
-import { cn } from "@lib/utils";
+import { ErrorBoundary, InlineErrorFallback } from "@/components/common";
+import { usePrefersReducedMotion } from "@/hooks/index";
+import { cn } from "@/lib/utils";
 import { memo, type ReactNode, type RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { RiBook2Fill } from "react-icons/ri";
 import { MingcuteAiFillSvg } from "../svg/MingcuteAiFillSvg.tsx";

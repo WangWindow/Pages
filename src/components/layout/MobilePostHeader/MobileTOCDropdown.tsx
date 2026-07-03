@@ -5,11 +5,11 @@
  * Uses Floating UI for positioning and Motion for animations.
  */
 
-import { animation } from "@constants/design-tokens";
+import { animation } from "@/constants/design-tokens";
 import { FloatingFocusManager, FloatingPortal, useClick, useDismiss, useInteractions, useRole } from "@floating-ui/react";
-import { useControlledState } from "@hooks/useControlledState";
-import { useFloatingUI } from "@hooks/useFloatingUI";
-import type { Heading } from "@hooks/useHeadingTree";
+import { useControlledState } from "@/hooks/useControlledState";
+import { useFloatingUI } from "@/hooks/useFloatingUI";
+import type { Heading } from "@/hooks/useHeadingTree";
 import { AnimatePresence, motion } from "motion/react";
 import type React from "react";
 import { cloneElement } from "react";

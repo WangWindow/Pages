@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import cloudflare from "@astrojs/cloudflare";
+import { unified } from "@astrojs/markdown-remark";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import yaml from "@rollup/plugin-yaml";
@@ -34,36 +35,37 @@ const robotsConfig = yamlConfig.seo?.robots;
 export default defineConfig({
   site: yamlConfig.site.url,
   output: "static",
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    prerenderEnvironment: "node",
+  }),
   compressHTML: true,
   markdown: {
-    // Enable GitHub Flavored Markdown
-    gfm: true,
-    // Configure remark plugins for link embedding
-    remarkPlugins: [
-      [
-        remarkLinkEmbed,
-        {
-          enableTweetEmbed: yamlConfig.content?.enableTweetEmbed ?? true,
-          enableOGPreview: yamlConfig.content?.enableOGPreview ?? true,
-        },
-      ],
-    ],
-    // Configure rehype plugins for automatic heading IDs and anchor links
-    rehypePlugins: [
-      rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: "append",
-          properties: {
-            className: ["anchor-link"],
-            ariaLabel: "Link to this section",
+    processor: unified({
+      gfm: true,
+      remarkPlugins: [
+        [
+          remarkLinkEmbed,
+          {
+            enableTweetEmbed: yamlConfig.content?.enableTweetEmbed ?? true,
+            enableOGPreview: yamlConfig.content?.enableOGPreview ?? true,
           },
-        },
+        ],
       ],
-      rehypeImagePlaceholder,
-    ],
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: "append",
+            properties: {
+              className: ["anchor-link"],
+              ariaLabel: "Link to this section",
+            },
+          },
+        ],
+        rehypeImagePlaceholder,
+      ],
+    }),
     syntaxHighlight: {
       type: "shiki",
       excludeLangs: ["mermaid"],
@@ -93,11 +95,24 @@ export default defineConfig({
     robotsTxt(robotsConfig || {}),
   ],
   vite: {
-    // eslint-disable-next-line
-    // @ts-expect-error
     plugins: [yaml(), svgr(), tailwindcss()],
+    resolve: {
+      noExternal: ["react-tweet"],
+    },
     ssr: {
       noExternal: ["react-tweet"],
+    },
+    environments: {
+      prerender: {
+        resolve: {
+          noExternal: ["react-tweet"],
+        },
+      },
+      ssr: {
+        resolve: {
+          noExternal: ["react-tweet"],
+        },
+      },
     },
     optimizeDeps: {
       include: ["@antv/infographic"],

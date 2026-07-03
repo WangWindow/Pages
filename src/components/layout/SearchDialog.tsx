@@ -5,12 +5,12 @@
  * Integrates with Pagefind for static site search.
  */
 
-import { Dialog, DialogPortal } from "@components/ui/dialog";
-import { useIsMounted } from "@hooks/useIsMounted";
-import { useEscapeKey, useKeyboardShortcut } from "@hooks/useKeyboardShortcut";
-import { cn } from "@lib/utils";
+import { Dialog, DialogPortal } from "@/components/ui/dialog";
+import { useIsMounted } from "@/hooks/useIsMounted";
+import { useEscapeKey, useKeyboardShortcut } from "@/hooks/useKeyboardShortcut";
+import { cn } from "@/lib/utils";
 import { useStore } from "@nanostores/react";
-import { $isSearchOpen, closeModal, openModal } from "@store/modal";
+import { $isSearchOpen, closeModal, openModal } from "@/store/modal";
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 

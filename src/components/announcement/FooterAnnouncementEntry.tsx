@@ -5,11 +5,11 @@
  * Shows unread badge when there are unread announcements.
  */
 
-import { useIsMounted } from "@hooks/useIsMounted";
+import { useIsMounted } from "@/hooks/useIsMounted";
 import { Icon } from "@iconify/react";
-import { cn } from "@lib/utils";
+import { cn } from "@/lib/utils";
 import { useStore } from "@nanostores/react";
-import { activeAnnouncements, openAnnouncementList, unreadCount } from "@store/announcement";
+import { activeAnnouncements, openAnnouncementList, unreadCount } from "@/store/announcement";
 import { AnimatePresence, motion } from "motion/react";
 
 export default function FooterAnnouncementEntry() {

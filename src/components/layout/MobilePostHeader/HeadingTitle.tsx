@@ -5,7 +5,7 @@
  * Uses bottom-to-top animation when heading changes.
  */
 
-import type { CurrentHeading } from "@hooks/useCurrentHeading";
+import type { CurrentHeading } from "@/hooks/useCurrentHeading";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
 interface HeadingTitleProps {

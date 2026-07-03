@@ -4,7 +4,7 @@
  * Note: Link previews are now server-rendered, only tweets need client hydration
  */
 
-import { ErrorBoundary, ErrorFallback } from "@components/common";
+import { ErrorBoundary, ErrorFallback } from "@/components/common";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import TweetEmbed from "./TweetEmbed";

@@ -4,9 +4,9 @@
 
 import { type CollectionEntry, getCollection } from "astro:content";
 
-import { siteConfig } from "@constants/site-config";
-import type { FeaturedSeriesItem } from "@lib/config/types";
-import type { BlogPost } from "types/blog";
+import { siteConfig } from "@/constants/site-config";
+import type { FeaturedSeriesItem } from "@/lib/config/types";
+import type { BlogPost } from "@/types/blog";
 import { extractTextFromMarkdown } from "../sanitize";
 import { buildCategoryPath } from "./categories";
 
@@ -18,7 +18,7 @@ import { buildCategoryPath } from "./categories";
  * @returns 文章描述文本
  */
 export function getPostDescription(post: BlogPost, maxLength: number = 150): string {
-  return post.data.description || extractTextFromMarkdown(post.body, maxLength);
+  return post.data.description || extractTextFromMarkdown(post.body ?? "", maxLength);
 }
 
 /**
@@ -39,7 +39,7 @@ export function getPostSummary(post: BlogPost): string | null {
  * @returns 文章描述文本
  */
 export function getPostDescriptionWithSummary(post: BlogPost, maxLength: number = 150): string {
-  return post.data.description || getPostSummary(post) || extractTextFromMarkdown(post.body, maxLength);
+  return post.data.description || getPostSummary(post) || extractTextFromMarkdown(post.body ?? "", maxLength);
 }
 
 /**

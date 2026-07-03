@@ -3,7 +3,7 @@
  * Provides a lightweight, theme-aware Twitter/X embed
  */
 
-import { useIsDarkTheme } from "@hooks/index";
+import { useIsDarkTheme } from "@/hooks/index";
 import { useEffect, useState } from "react";
 import { Tweet } from "react-tweet";
 

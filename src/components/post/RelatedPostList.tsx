@@ -1,4 +1,4 @@
-import { encodeSlug } from "@lib/route";
+import { encodeSlug } from "@/lib/route";
 import { cn, shuffleArray } from "@/lib/utils";
 import type { PostRefWithCategory } from "@/types/blog";
 

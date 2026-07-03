@@ -6,11 +6,11 @@
  * - Expand/collapse toggle
  */
 
-import { useIsMounted } from "@hooks/useIsMounted";
+import { useIsMounted } from "@/hooks/useIsMounted";
 import { Icon } from "@iconify/react";
-import { cn } from "@lib/utils";
+import { cn } from "@/lib/utils";
 import { useStore } from "@nanostores/react";
-import { $isDrawerOpen } from "@store/modal";
+import { $isDrawerOpen } from "@/store/modal";
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useState } from "react";
 

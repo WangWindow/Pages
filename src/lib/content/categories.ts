@@ -3,7 +3,7 @@
  */
 
 import { getCollection } from "astro:content";
-import { categoryMap } from "@constants/category";
+import { categoryMap } from "@/constants/category";
 import { encodeSlug } from "../route";
 import type { Category, CategoryListResult } from "./types";
 

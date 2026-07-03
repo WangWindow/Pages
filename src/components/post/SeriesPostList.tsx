@@ -2,9 +2,9 @@
  * SeriesPostList - 显示系列文章列表
  */
 
-import { Routes } from "@constants/router";
-import { routeBuilder } from "@lib/route";
-import { cn } from "@lib/utils";
+import { Routes } from "@/constants/router";
+import { routeBuilder } from "@/lib/route";
+import { cn } from "@/lib/utils";
 import type { PostRef } from "@/types/blog";
 
 interface SeriesPostListProps {

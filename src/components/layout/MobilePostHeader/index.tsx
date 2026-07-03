@@ -5,9 +5,9 @@
  * with progress circle and expandable TOC dropdown.
  */
 
-import { animation } from "@constants/design-tokens";
-import { useActiveHeading, useExpandedState, useHeadingClickHandler, useHeadingTree, useMediaQuery } from "@hooks/index";
-import { useCurrentHeading } from "@hooks/useCurrentHeading";
+import { animation } from "@/constants/design-tokens";
+import { useActiveHeading, useExpandedState, useHeadingClickHandler, useHeadingTree, useMediaQuery } from "@/hooks/index";
+import { useCurrentHeading } from "@/hooks/useCurrentHeading";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { siteConfig } from "@/constants/site-config";
 import { HeadingTitle } from "./HeadingTitle";

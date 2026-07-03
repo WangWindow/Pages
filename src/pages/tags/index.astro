@@ -1,13 +1,13 @@
 ---
-import HomeSider from "@components/layout/HomeSider.astro";
-import { CollapsibleTags } from "@components/tag/CollapsibleTags";
-import { TagItem } from "@components/tag/TagItem";
-import Cover from "@components/ui/cover/Cover.astro";
-import { CONTENT_PADDING } from "@constants/layout";
-import { siteConfig } from "@constants/site-config";
-import Layout from "@layouts/Layout.astro";
-import TwoColumnLayout from "@layouts/TwoColumnLayout.astro";
-import { getAllTags, getSortedPosts } from "@lib/content";
+import HomeSider from "@/components/layout/HomeSider.astro";
+import { CollapsibleTags } from "@/components/tag/CollapsibleTags";
+import { TagItem } from "@/components/tag/TagItem";
+import Cover from "@/components/ui/cover/Cover.astro";
+import { CONTENT_PADDING } from "@/constants/layout";
+import { siteConfig } from "@/constants/site-config";
+import Layout from "@/layouts/Layout.astro";
+import TwoColumnLayout from "@/layouts/TwoColumnLayout.astro";
+import { getAllTags, getSortedPosts } from "@/lib/content";
 
 const posts = await getSortedPosts();
 const tags = getAllTags(posts);

@@ -5,7 +5,7 @@
  * Integrates with the project's theme system.
  */
 
-import { useIsDarkTheme } from "@hooks/useIsDarkTheme";
+import { useIsDarkTheme } from "@/hooks/useIsDarkTheme";
 import { Icon } from "@iconify/react";
 import { Toaster as Sonner, type ToasterProps } from "sonner";
 

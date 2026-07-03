@@ -5,7 +5,7 @@
  * Each toast can be dismissed, which marks it as read.
  */
 
-import { useRetimer } from "@hooks/useRetimer";
+import { useRetimer } from "@/hooks/useRetimer";
 import { Icon } from "@iconify/react";
 import { useStore } from "@nanostores/react";
 import {
@@ -14,7 +14,7 @@ import {
   markAsRead,
   openAnnouncementList,
   unreadAnnouncements,
-} from "@store/announcement";
+} from "@/store/announcement";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import type { Announcement } from "@/types/announcement";

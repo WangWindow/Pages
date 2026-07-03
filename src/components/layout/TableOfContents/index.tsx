@@ -5,7 +5,7 @@
  * Uses custom hooks for state management and sub-components for better organization.
  */
 
-import { useActiveHeading, useExpandedState, useHeadingClickHandler, useHeadingTree } from "@hooks/index";
+import { useActiveHeading, useExpandedState, useHeadingClickHandler, useHeadingTree } from "@/hooks/index";
 import { HeadingList } from "./HeadingList";
 
 // Constants

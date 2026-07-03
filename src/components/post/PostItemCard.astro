@@ -1,15 +1,15 @@
 ---
 // 导入所需的库和类型
-import { Badge } from "@components/ui/badge";
-import { Button } from "@components/ui/button";
-import { Routes } from "@constants/router";
-import { defaultCoverList } from "@constants/site-config";
-import { buildCategoryPath, buildTagPath, getCategoryArr } from "@lib/content";
-import { getCoverUrl } from "@lib/content/transforms";
-import { displayDate } from "@lib/date";
-import { getLqipProps } from "@lib/lqip";
-import { routeBuilder } from "@lib/route";
-import { cn } from "@lib/utils";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Routes } from "@/constants/router";
+import { defaultCoverList } from "@/constants/site-config";
+import { buildCategoryPath, buildTagPath, getCategoryArr } from "@/lib/content";
+import { getCoverUrl } from "@/lib/content/transforms";
+import { displayDate } from "@/lib/date";
+import { getLqipProps } from "@/lib/lqip";
+import { routeBuilder } from "@/lib/route";
+import { cn } from "@/lib/utils";
 import { Icon } from "astro-icon/components";
 import type { PostCardData } from "@/types/blog";
 

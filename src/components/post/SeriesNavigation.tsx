@@ -1,10 +1,10 @@
 /**
  * SeriesNavigation - 系列文章上一篇/下一篇导航
  */
-import { Routes } from "@constants/router";
-import { useIsMounted } from "@hooks/useIsMounted";
-import { routeBuilder } from "@lib/route";
-import { cn } from "@lib/utils";
+import { Routes } from "@/constants/router";
+import { useIsMounted } from "@/hooks/useIsMounted";
+import { routeBuilder } from "@/lib/route";
+import { cn } from "@/lib/utils";
 import { RiArrowDownSLine, RiArrowLeftSLine, RiArrowRightSLine, RiArrowUpSLine } from "react-icons/ri";
 import type { PostRef } from "@/types/blog";
 

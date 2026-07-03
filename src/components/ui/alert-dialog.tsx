@@ -21,7 +21,7 @@
  * ```
  */
 
-import { cn } from "@lib/utils";
+import { cn } from "@/lib/utils";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import type React from "react";
 import { forwardRef } from "react";

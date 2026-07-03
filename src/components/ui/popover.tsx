@@ -1,4 +1,4 @@
-import { animation } from "@constants/design-tokens";
+import { animation } from "@/constants/design-tokens";
 import {
   FloatingFocusManager,
   FloatingPortal,
@@ -9,9 +9,9 @@ import {
   useInteractions,
   useRole,
 } from "@floating-ui/react";
-import { useControlledState } from "@hooks/useControlledState";
-import { useFloatingUI } from "@hooks/useFloatingUI";
-import { cn } from "@lib/utils";
+import { useControlledState } from "@/hooks/useControlledState";
+import { useFloatingUI } from "@/hooks/useFloatingUI";
+import { cn } from "@/lib/utils";
 import { AnimatePresence, type MotionProps, motion } from "motion/react";
 import React, { cloneElement } from "react";
 

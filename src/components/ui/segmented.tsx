@@ -1,4 +1,4 @@
-import { cn } from "@lib/utils";
+import { cn } from "@/lib/utils";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import React, { useCallback, useEffect, useState } from "react";
 

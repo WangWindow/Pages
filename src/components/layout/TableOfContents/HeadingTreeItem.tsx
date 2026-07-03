@@ -5,7 +5,7 @@
  * Supports nesting, active state highlighting, and recursive rendering of children.
  */
 
-import type { Heading } from "@hooks/useHeadingTree";
+import type { Heading } from "@/hooks/useHeadingTree";
 import { memo } from "react";
 import { cn } from "@/lib/utils";
 

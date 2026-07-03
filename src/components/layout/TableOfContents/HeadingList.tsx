@@ -5,7 +5,7 @@
  * Handles the recursive rendering logic for nested headings.
  */
 
-import type { Heading } from "@hooks/useHeadingTree";
+import type { Heading } from "@/hooks/useHeadingTree";
 import { memo, useCallback } from "react";
 import { HeadingTreeItem } from "./HeadingTreeItem";
 

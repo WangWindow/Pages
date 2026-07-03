@@ -1,11 +1,11 @@
 ---
-import ButtonLink from "@components/control/ButtonLink.astro";
-import type { HomeSiderType } from "@constants/enum";
-import { RESERVED_ROUTES, routers } from "@constants/router";
-import { configuredSeriesSlugs, enabledSeriesSlugs, siteConfig } from "@constants/site-config";
-import { getAllTags, getCategoryList, getPostCount, getSortedPosts } from "@lib/content";
-import { getLqipStyle } from "@lib/lqip";
-import { cn, filterNavItems } from "@lib/utils";
+import ButtonLink from "@/components/control/ButtonLink.astro";
+import type { HomeSiderType } from "@/constants/enum";
+import { RESERVED_ROUTES, routers } from "@/constants/router";
+import { configuredSeriesSlugs, enabledSeriesSlugs, siteConfig } from "@/constants/site-config";
+import { getAllTags, getCategoryList, getPostCount, getSortedPosts } from "@/lib/content";
+import { getLqipStyle } from "@/lib/lqip";
+import { cn, filterNavItems } from "@/lib/utils";
 import { Icon } from "astro-icon/components";
 import type { BlogSchema } from "@/types/blog";
 import Social from "./Social.astro";

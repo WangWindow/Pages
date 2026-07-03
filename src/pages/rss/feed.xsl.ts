@@ -1,4 +1,4 @@
-import { siteConfig, socialConfig } from "@constants/site-config";
+import { siteConfig, socialConfig } from "@/constants/site-config";
 import type { APIContext } from "astro";
 import { capitalize } from "es-toolkit";
 

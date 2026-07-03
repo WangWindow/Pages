@@ -1,5 +1,5 @@
-import { Routes } from "@constants/router";
-import type { BlogPost, PostRef } from "types/blog";
+import { Routes } from "@/constants/router";
+import type { BlogPost, PostRef } from "@/types/blog";
 
 export type RouteParams<T extends Routes> = T extends Routes.Post ? BlogPost | PostRef | undefined : undefined;
 
@@ -17,7 +17,7 @@ export function routeBuilder<T extends Routes>(route: T, param: RouteParams<type
     case Routes.Post: {
       // 兼容 BlogPost 和 PostRef
       const link = "data" in param ? param.data?.link : param.link;
-      const slug = param.slug;
+      const slug = "data" in param ? param.id : param.slug;
       href += `/${encodeSlug(link ?? slug)}`;
       break;
     }

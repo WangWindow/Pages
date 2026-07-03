@@ -1,6 +1,6 @@
 // Import YAML config directly - processed by @rollup/plugin-yaml
 
-import type { RouterItem } from "@lib/config/types";
+import type { RouterItem } from "@/lib/config/types";
 import yamlConfig from "../../site.yaml";
 
 export type Router = RouterItem;

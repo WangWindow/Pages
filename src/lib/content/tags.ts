@@ -2,7 +2,7 @@
  * Tag-related utility functions
  */
 
-import type { BlogPost } from "types/blog";
+import type { BlogPost } from "@/types/blog";
 import { encodeSlug } from "../route";
 
 /**

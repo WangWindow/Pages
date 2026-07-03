@@ -1,7 +1,7 @@
 // Import YAML config directly - processed by @rollup/plugin-yaml
 
-import type { CommentConfig, FeaturedCategory, FeaturedSeriesItem, SiteBasicConfig } from "@lib/config/types";
-import { DEFAULT_TIMEZONE, isValidTimezone } from "@lib/timezone";
+import type { CommentConfig, FeaturedCategory, FeaturedSeriesItem, SiteBasicConfig } from "@/lib/config/types";
+import { DEFAULT_TIMEZONE, isValidTimezone } from "@/lib/timezone";
 import yamlConfig from "../../site.yaml";
 import { isReservedSlug, RESERVED_ROUTES } from "./router";
 

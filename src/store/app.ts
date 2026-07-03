@@ -1,4 +1,4 @@
-import { HomeSiderSegmentType, HomeSiderType } from "@constants/enum";
+import { HomeSiderSegmentType, HomeSiderType } from "@/constants/enum";
 import { atom } from "nanostores";
 
 export const homeSiderSegmentType = atom<HomeSiderSegmentType>(HomeSiderSegmentType.INFO);

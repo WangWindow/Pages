@@ -1,6 +1,6 @@
 import type { ImageMetadata } from "astro";
-import { siteConfig } from "@constants/site-config";
-import { getCoverUrl } from "@lib/content/transforms";
+import { siteConfig } from "@/constants/site-config";
+import { getCoverUrl } from "@/lib/content/transforms";
 
 /**
  * Get the OG image URL with proper fallback chain

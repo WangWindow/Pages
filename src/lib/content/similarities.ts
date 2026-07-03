@@ -3,7 +3,7 @@
  * Computes similarity dynamically based on categories and tags at build/runtime
  */
 
-import type { BlogPost } from "types/blog";
+import type { BlogPost } from "@/types/blog";
 
 interface SimilarPost {
   slug: string;

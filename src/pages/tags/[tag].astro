@@ -1,17 +1,17 @@
 ---
-import HomeSider from "@components/layout/HomeSider.astro";
-import Cover from "@components/ui/cover/Cover.astro";
-import { CONTENT_PADDING } from "@constants/layout";
-import { siteConfig } from "@constants/site-config";
-import Layout from "@layouts/Layout.astro";
-import TwoColumnLayout from "@layouts/TwoColumnLayout.astro";
+import HomeSider from "@/components/layout/HomeSider.astro";
+import Cover from "@/components/ui/cover/Cover.astro";
+import { CONTENT_PADDING } from "@/constants/layout";
+import { siteConfig } from "@/constants/site-config";
+import Layout from "@/layouts/Layout.astro";
+import TwoColumnLayout from "@/layouts/TwoColumnLayout.astro";
 import {
   getPostLastCategory,
   getSortedPosts,
   normalizeTag,
-} from "@lib/content";
-import { displayDate } from "@lib/date";
-import { encodeSlug } from "@lib/route";
+} from "@/lib/content";
+import { displayDate } from "@/lib/date";
+import { encodeSlug } from "@/lib/route";
 
 export async function getStaticPaths() {
   const posts = await getSortedPosts();

@@ -118,8 +118,8 @@ import { Icon } from "astro-icon/components";
 </div>
 
 <script>
-  import { mermaidFullscreenData, openMermaidFullscreen, closeMermaidFullscreen, type MermaidFullscreenData } from '@store/modal';
-  import { copyToClipboard } from '@lib/code-block-enhancer';
+  import { mermaidFullscreenData, openMermaidFullscreen, closeMermaidFullscreen, type MermaidFullscreenData } from '@/store/modal';
+  import { copyToClipboard } from '@/lib/code-block-enhancer';
 
   interface MermaidFullscreenElements {
     overlay: HTMLElement | null;

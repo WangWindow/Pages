@@ -1,7 +1,7 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
-import { parseDateInSiteTimezone, reinterpretUtcAsTimezone } from "@lib/date";
-import type { BlogSchemaInput } from "@types/blog";
+import { z } from "astro/zod";
+import { parseDateInSiteTimezone, reinterpretUtcAsTimezone } from "@/lib/date";
 
 /**
  * Custom date schema that parses date strings in the site's configured timezone.
@@ -54,7 +54,7 @@ const blogCollection = defineCollection({
       excludeFromSummary: z.boolean().optional(),
       // AI 摘要（从元数据读取）
       summary: z.string().optional(),
-    }) satisfies z.ZodType<unknown, z.ZodTypeDef, BlogSchemaInput>,
+    }),
 });
 
 export const collections = {

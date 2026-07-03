@@ -1,6 +1,5 @@
-import { microDampingPreset } from "@constants/anim/spring";
-import type { FriendLink } from "@constants/friends-config";
-import { useIsMounted } from "@hooks/useIsMounted";
+import { microDampingPreset } from "@/constants/anim/spring";
+import type { FriendLink } from "@/constants/friends-config";
 import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from "motion/react";
 import { type MouseEvent, useRef } from "react";
 import { cn, normalizeHexColor } from "@/lib/utils";
@@ -30,7 +29,6 @@ const DEFAULT_AVATAR = `data:image/svg+xml;utf8,${encodeURIComponent(`
 
 export default function FriendCard({ friend, index }: FriendCardProps) {
   const cardRef = useRef<HTMLAnchorElement>(null);
-  const _isMounted = useIsMounted();
 
   // Motion values for magnetic hover
   const x = useMotionValue(0);

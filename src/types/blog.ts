@@ -2,7 +2,7 @@ import type { CollectionEntry } from "astro:content";
 import type { ImageMetadata } from "astro";
 
 /**
- * Blog post schema - matches the schema defined in content/config.ts
+ * Blog post schema - matches the schema defined in content.config.ts
  * This is the OUTPUT type after Zod transforms are applied.
  */
 export interface BlogSchema {

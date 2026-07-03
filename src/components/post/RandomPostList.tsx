@@ -1,5 +1,5 @@
-import { encodeSlug } from "@lib/route";
-import { shuffleArray } from "@lib/utils";
+import { encodeSlug } from "@/lib/route";
+import { shuffleArray } from "@/lib/utils";
 import { useMemo } from "react";
 import type { PostRefWithCategory } from "@/types/blog";
 

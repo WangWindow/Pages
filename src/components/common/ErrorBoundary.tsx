@@ -25,6 +25,9 @@ export const ErrorFallback: FC<ErrorFallbackProps> = ({
   showDetails = import.meta.env.DEV,
   actions,
 }) => {
+  const errorMessage = error instanceof Error ? error.message : String(error);
+  const errorStack = error instanceof Error ? error.stack : undefined;
+
   return (
     <div className="flex w-full flex-col items-center gap-4 rounded-lg border border-red-200 bg-red-50 p-6 dark:border-red-900/50 dark:bg-red-950/20">
       <div className="flex-center gap-2 font-medium text-lg text-red-700 dark:text-red-400">
@@ -38,11 +41,11 @@ export const ErrorFallback: FC<ErrorFallbackProps> = ({
         {title}
       </div>
 
-      {showDetails && error?.message && (
+      {showDetails && errorMessage && (
         <div className="w-full rounded-md bg-red-100 p-3 font-mono text-red-800 text-sm dark:bg-red-900/30 dark:text-red-300">
-          <p className="font-semibold">Error: {error.message}</p>
-          {import.meta.env.DEV && error?.stack && (
-            <pre className="mt-2 max-h-32 overflow-auto whitespace-pre-wrap text-xs opacity-70">{error.stack}</pre>
+          <p className="font-semibold">Error: {errorMessage}</p>
+          {import.meta.env.DEV && errorStack && (
+            <pre className="mt-2 max-h-32 overflow-auto whitespace-pre-wrap text-xs opacity-70">{errorStack}</pre>
           )}
         </div>
       )}
@@ -74,9 +77,11 @@ export const ErrorFallback: FC<ErrorFallbackProps> = ({
  * Minimal inline error fallback for smaller components
  */
 export const InlineErrorFallback: FC<FallbackProps> = ({ error, resetErrorBoundary }) => {
+  const errorMessage = error instanceof Error ? error.message : String(error);
+
   return (
     <div className="flex-center-y gap-2 text-lg text-red-600 dark:text-red-400">
-      <span>Error{error?.message ? `: ${error.message}` : ""}</span>
+      <span>Error{errorMessage ? `: ${errorMessage}` : ""}</span>
       <div className="flex flex-wrap items-center justify-center gap-3">
         <Button variant="outline" size="sm" onClick={resetErrorBoundary} className="gap-1.5">
           <RiRefreshLine className="size-4" />
@@ -101,7 +106,7 @@ export interface ErrorBoundaryProps extends PropsWithChildren {
   /** Fallback component for full control */
   FallbackComponent?: ComponentProps<typeof ErrorBoundaryLib>["FallbackComponent"];
   /** Callback when error is caught */
-  onError?: (error: Error, info: React.ErrorInfo) => void;
+  onError?: (error: unknown, info: React.ErrorInfo) => void;
   /** Callback when boundary is reset */
   onReset?: () => void;
   /** Keys that trigger reset when changed */
@@ -136,7 +141,7 @@ export const ErrorBoundary: FC<ErrorBoundaryProps> = ({
   onReset,
   resetKeys,
 }) => {
-  const handleError = (error: Error, info: React.ErrorInfo) => {
+  const handleError = (error: unknown, info: React.ErrorInfo) => {
     console.error("[ErrorBoundary]", error, info);
     onError?.(error, info);
   };

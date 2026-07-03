@@ -21,8 +21,8 @@
  * ```
  */
 
-import { animation } from "@constants/design-tokens";
-import { cn } from "@lib/utils";
+import { animation } from "@/constants/design-tokens";
+import { cn } from "@/lib/utils";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { AnimatePresence, motion } from "motion/react";
 import type React from "react";

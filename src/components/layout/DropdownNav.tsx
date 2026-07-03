@@ -1,7 +1,7 @@
-import Popover from "@components/ui/popover";
-import type { Router } from "@constants/router";
+import Popover from "@/components/ui/popover";
+import type { Router } from "@/constants/router";
 import { Icon } from "@iconify/react";
-import { cn } from "@lib/utils";
+import { cn } from "@/lib/utils";
 import { memo, useCallback, useState } from "react";
 
 interface DropdownNavProps {

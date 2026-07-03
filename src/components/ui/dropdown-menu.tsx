@@ -20,7 +20,7 @@
  * ```
  */
 
-import { cn } from "@lib/utils";
+import { cn } from "@/lib/utils";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import type React from "react";
 import { forwardRef } from "react";

@@ -1,6 +1,6 @@
-import { ErrorBoundary, ErrorFallback } from "@components/common";
-import { microDampingPreset } from "@constants/anim/spring";
-import { friendsData } from "@constants/friends-config";
+import { ErrorBoundary, ErrorFallback } from "@/components/common";
+import { microDampingPreset } from "@/constants/anim/spring";
+import { friendsData } from "@/constants/friends-config";
 import { motion } from "motion/react";
 import FriendCard from "./FriendCard";
 

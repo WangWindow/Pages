@@ -5,12 +5,12 @@
  * Uses useScrollTrigger hook for optimized scroll handling.
  */
 
-import ThemeToggle from "@components/theme/ThemeToggle";
-import { RESERVED_ROUTES, routers } from "@constants/router";
-import { configuredSeriesSlugs, enabledSeriesSlugs } from "@constants/site-config";
-import { useScrollTrigger } from "@hooks/useScrollTrigger";
+import ThemeToggle from "@/components/theme/ThemeToggle";
+import { RESERVED_ROUTES, routers } from "@/constants/router";
+import { configuredSeriesSlugs, enabledSeriesSlugs } from "@/constants/site-config";
+import { useScrollTrigger } from "@/hooks/useScrollTrigger";
 import { Icon } from "@iconify/react";
-import { cn, filterNavItems } from "@lib/utils";
+import { cn, filterNavItems } from "@/lib/utils";
 import { memo, useEffect, useRef, useState } from "react";
 import DropdownNav from "./DropdownNav";
 import { SearchTrigger } from "./SearchDialog";

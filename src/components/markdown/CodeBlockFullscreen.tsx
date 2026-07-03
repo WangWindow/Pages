@@ -5,12 +5,12 @@
  * Uses the unified modal store for state management.
  */
 
-import { Dialog, DialogPortal } from "@components/ui/dialog";
-import { useEscapeKey } from "@hooks/useKeyboardShortcut";
-import { copyToClipboard } from "@lib/code-block-enhancer";
-import { cn } from "@lib/utils";
+import { Dialog, DialogPortal } from "@/components/ui/dialog";
+import { useEscapeKey } from "@/hooks/useKeyboardShortcut";
+import { copyToClipboard } from "@/lib/code-block-enhancer";
+import { cn } from "@/lib/utils";
 import { useStore } from "@nanostores/react";
-import { $codeFullscreenData, type CodeBlockData, closeModal, openModal } from "@store/modal";
+import { $codeFullscreenData, type CodeBlockData, closeModal, openModal } from "@/store/modal";
 import { AnimatePresence, motion } from "motion/react";
 import { useCallback, useEffect, useState } from "react";
 

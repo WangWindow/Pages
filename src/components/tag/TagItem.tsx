@@ -1,4 +1,4 @@
-import { buildTagPath } from "@lib/content/tags";
+import { buildTagPath } from "@/lib/content/tags";
 
 const TAG_COLORS = [
   "from-blue-400/10 to-indigo-300/10 hover:from-blue-400/80 hover:to-indigo-300/80 text-blue-400/70 hover:text-blue-50",

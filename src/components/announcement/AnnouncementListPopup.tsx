@@ -5,10 +5,10 @@
  * Triggered from Footer entry point.
  */
 
-import { animation, zIndex } from "@constants/design-tokens";
+import { animation, zIndex } from "@/constants/design-tokens";
 import { Icon } from "@iconify/react";
-import { displayDate } from "@lib/date";
-import { cn } from "@lib/utils";
+import { displayDate } from "@/lib/date";
+import { cn } from "@/lib/utils";
 import { useStore } from "@nanostores/react";
 import {
   activeAnnouncements,
@@ -17,7 +17,7 @@ import {
   markAllAsRead,
   markAsRead,
   readAnnouncementIds,
-} from "@store/announcement";
+} from "@/store/announcement";
 import { AnimatePresence, motion } from "motion/react";
 import type { Announcement } from "@/types/announcement";
 import { getAnnouncementColor, getAnnouncementIcon } from "./AnnouncementToaster";
