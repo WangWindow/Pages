@@ -1,6 +1,7 @@
 export async function onRequestGet(context) {
   const requestUrl = new URL(context.request.url);
   const code = requestUrl.searchParams.get("code");
+  const redirectUri = `${requestUrl.origin}/callback`;
   const clientId = context.env.GITHUB_CLIENT_ID;
   const clientSecret = context.env.GITHUB_CLIENT_SECRET;
 
@@ -24,6 +25,7 @@ export async function onRequestGet(context) {
         client_id: clientId,
         client_secret: clientSecret,
         code,
+        redirect_uri: redirectUri,
       }),
     },
   );
@@ -39,7 +41,12 @@ export async function onRequestGet(context) {
   const accessToken = tokenData.access_token;
 
   if (!accessToken) {
-    return new Response("GitHub token missing in response", { status: 502 });
+    const error = tokenData.error || "unknown";
+    const description = tokenData.error_description || "no description";
+    return new Response(
+      `GitHub token exchange error: ${error} — ${description}`,
+      { status: 502 },
+    );
   }
 
   const html = `<!doctype html>
