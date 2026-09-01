@@ -37,7 +37,7 @@ const blogCollection = defineCollection({
       date: dateInSiteTimezone,
       updated: dateInSiteTimezone.optional(),
       // 支持相对路径图片（使用 image()）或 URL 字符串
-      cover: image().or(z.string().url()).optional(),,
+      cover: image().or(z.string().url()).optional(),
       tags: z.array(z.string()).optional(),
       // 兼容老 Hexo 博客
       subtitle: z.string().optional(),
