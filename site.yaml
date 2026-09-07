@@ -269,7 +269,7 @@ content:
   enableCodeFullscreen: true # 代码全屏按钮
   enableLinkEmbed: true # 链接卡片预览
   enableTweetEmbed: true # 推文嵌入
-  enableOGPreview: true # OG 预览卡片
+  enableOGPreview: false # OG 预览卡片（关闭：构建期会抓取外链，依赖外部站点可用性）
   previewCacheTime: 3600 # 预览缓存时间(秒)
   lazyLoadEmbeds: true # 延迟加载嵌入
   postCardImagePosition: alternating # 文章卡片封面图位置在首页的显示控制 alternating 默认交替显示 left 封面图始终在左侧 right 封面图始终在右侧
